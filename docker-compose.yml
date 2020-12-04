@@ -1,0 +1,136 @@
+version: '3' 
+
+services:
+
+    nginx:
+        build: 
+            context: ./nginx
+            dockerfile: Dockerfile
+
+        volumes:
+
+            - static_volume:/radio/static
+            - image_volume:/radio/image
+            - story_volume:/radio/story
+            - avatar_volume:/radio/avatar
+
+        container_name: nginx
+
+
+        depends_on:
+            - radio
+        
+        networks: 
+            - N_networks
+       
+
+        ports: 
+            - "80:80"
+        
+        
+
+    
+    radio:
+
+        build: 
+            context: .
+            dockerfile: Dockerfile
+
+        volumes: 
+            - .:/radio
+            - static_volume:/radio/static
+            - image_volume:/radio/image
+            - story_volume:/radio/story
+            - avatar_volume:/radio/avatar
+        container_name:  radio
+
+        ports: 
+            - "8000:8000"
+        networks: 
+            - R_networks
+            - N_networks
+        restart: always
+
+        depends_on: 
+    
+            - postgre
+
+            - memcached
+        
+
+
+    postgre:
+
+        image: postgres:12
+
+
+
+        networks: 
+            - R_networks
+
+
+        restart: always
+
+        volumes: 
+
+                - db_volume:/var/lib/postgresql/data
+        container_name: 
+            postgre
+        
+        
+
+        environment: 
+
+           POSTGRES_USER: 'mhmd'
+           POSTGRES_PASSWORD: '191431'
+           POSTGRES_DB: 'beech'
+
+    memcached:
+
+        image: memcached
+
+        networks:
+            - R_networks
+
+        restart: always
+
+        container_name: 
+            memcached
+
+        entrypoint: 
+          
+          - memcached
+          - -m 256
+       
+           
+            
+        
+
+
+volumes:
+
+    db_volume:
+        external: true
+    image_volume:
+        external: true
+    story_volume:
+        external: true
+    avatar_volume:
+        external: true
+ 
+    static_volume:
+        external: true
+
+    
+networks: 
+
+    R_networks:
+        external: true
+    N_networks:
+        external: true
+    
+
+
+       
+
+

@@ -1,0 +1,33 @@
+{% extends 'profile.html' %}
+
+{% block content %}
+  
+  
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+        <div class="col-lg-7">
+          <form  method="post" class="bg-white" action="{% url "create_personal_information" user.id %}"    enctype="multipart/form-data">{% csrf_token %}
+
+          
+              <h1 class="mb-3 display-5">Create Personal Information</h1>
+              {{form.as_p}}
+              
+               <input type="submit" class="btn-lg btn-danger" value="       Save      ">
+              
+             
+          </form> 
+
+     
+        </div>
+        <div class="col-lg-17">
+
+        </div>
+      </div>
+    </div>
+
+
+   
+
+
+
+{% endblock content %}

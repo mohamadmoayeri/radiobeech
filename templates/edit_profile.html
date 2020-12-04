@@ -1,0 +1,70 @@
+{% extends 'profile.html' %}
+
+{% block content %}
+  
+  
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+        <div class="col-lg-7">
+          <form  method="post" class="bg-white">{% csrf_token %}
+
+          
+          <h1 class="mb-3 display-5">{{user.get_username}}</h1> 
+              <div class="">
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    {{form.username.label_tag|title}}<br/>
+                    {{form.username}}
+                    {{form.username.errors|first|lower}}
+
+                  
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    {{form.email.label_tag|title}}<br/>
+                    {{form.email}}
+                    {{form.email.errors|first|lower}}
+                  </div>
+                </div>
+                
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    {{form.first_name.label_tag|title}}<br/>
+                    {{form.first_name}}
+                    {{form.first_name.errors|first|lower}}
+                    
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                   {{form.last_name.label_tag|title}}<br/>
+                   {{form.last_name}}
+                   {{form.last_name.errors|first|lower}}
+                    
+                    
+                  </div>
+                </div>
+
+              
+              <input type="submit" class="btn-lg btn-danger" value="       Save      ">
+              <a  class="font-weight-light h5" href="{% url 'add_personal_information' %}"><strong class="text-info"> Personal Information Settings</strong></a>
+             
+          </form> 
+
+     
+        </div>
+        <div class="col-lg-17">
+
+        </div>
+      </div>
+    </div>
+
+
+   
+
+
+
+{% endblock content %}
+
+

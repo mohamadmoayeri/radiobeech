@@ -1,0 +1,34 @@
+{% extends 'profile.html' %}
+
+{% block content %}
+  
+  
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+        <div class="col-lg-7">
+          <form  method="post" class="bg-white">{% csrf_token %}
+            
+              
+              <h3 class="text-warning">are you sur to delete the story?</h3><br/>
+
+              
+              
+              <input type="submit" class="font-weight-light h5" value="         Yes I'm Sure      ">
+              
+             
+          </form> 
+
+     
+        </div>
+        <div class="col-lg-17">
+
+        </div>
+      </div>
+    </div>
+
+
+   
+
+
+
+{% endblock content %}

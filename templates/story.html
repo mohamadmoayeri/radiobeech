@@ -1,0 +1,97 @@
+{% extends 'profile.html' %}
+            {% block active %}
+                <li>
+                  <a href="{% url 'home' %}">Home</a>
+                </li>
+              {% if user.is_authenticated %}
+                <li  ><a class="text-danger" href="{% url 'create_story'%}">Share Story</a><li>
+                <li class="active"><a href="{% url "story" %}">Stories</a></li>
+                <li ><a href="{% url 'profile' %}">{{user.get_username}}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>               
+              {% else %}  
+
+                <li><a href="{% url "register" %}">Register</a></li>       
+                <li><a href="{% url "login" %}">Login</a></li>
+
+              {% endif %}
+            {% endblock active %}
+
+
+{% block content %}
+          <div class="container pt-5 hero">
+  
+            <form  method='get' action="#" >
+              {{form.search.label}}
+              {{form.search}}
+              <input type='submit'  value="search in stories" >
+            </form>
+          </div>
+
+               
+               
+    
+              
+
+              
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+        <div class="col-lg-7">
+        {% for i in object_list %}
+          <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+              <div class="image" style="background-image: url('{{i.image.url}}');"></div>
+              <div class="text">
+
+                <h3 class="font-weight-light"><a href="single-post.html">{{i.title}}</a></h3>
+                <div class="text-white mb-3"><span class="text-black-opacity-05">By<a href="{% url "his_profile" i.user %}"> {{i.user}} </a><span class="sep"></span> {{i.created_at.date}} </div>
+
+
+                <div class="player">
+                  <audio id="player2" preload="none" controls style="max-width: 100%">
+                    <source src="{{i.sound.url}}" type="audio/mp3">
+
+                    
+                    </audio>
+                     <br/><div class="text-white mb-3"><span class="text-black-opacity-05">{{i.caption|safe}}</div>
+                  </div>
+
+                </div>
+              </div>
+
+        {% endfor %}
+        </div>
+        
+      </div>
+    </div>
+
+                <div class="container" data-aos="fade-up">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <div class="site-block-27">
+                          
+                          
+                        <ul>
+                        {% if page_obj.has_previous %}
+                              <li><a href="?page={{page_obj.previous_page_number}}" class="icon-keyboard_arrow_left"></a></li>
+                        {% endif %}
+
+                        {% for page in page_obj.paginator.page_range %}
+                           {% ifequal page page_obj.number %}
+                              <li class="active" ><a href="?page={{page}}">{{page}}</a></li>
+                           {% else %}
+                              <li ><a href="?page={{page}}">{{page}}</a></li>
+                           {% endifequal %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                              <li><a href="?page={{page_obj.next_page_number}}" class="icon-keyboard_arrow_right"></a></li>
+                        {% endif %}
+                        </ul>
+                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+   
+
+
+
+{% endblock content %}

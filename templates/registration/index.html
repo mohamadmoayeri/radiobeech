@@ -44,7 +44,7 @@
 
 
           <div class="col-3">
-            <h3 class="site-logo"><a href="{% url 'home' %}" class="h3">Radio Beech </a></h3>
+           <a href="{% url 'home' %}" class="h6">Beech </a>
           </div>
           <div class="col-9">
             <nav class="site-navigation position-relative text-right text-md-right" role="navigation">
@@ -107,7 +107,7 @@
     </div>
 
 
-    <div class="site-section">
+     <div class="site-section">
       <div class="container">
 
         <div class="row">
@@ -130,8 +130,9 @@
               </ul>
             </div>
           </div>
+        
 
-          <div class="col-lg-9">
+           <div class="col-lg-9">
 
 
           {% for i in data %}
@@ -140,8 +141,8 @@
               <div class="image" style="background-image: url('{{i.image.url}}');"></div>
               <div class="text">
 
-                <h3 class="font-weight-light"><a href="single-post.html">{{i.title}}</a></h3>
-                <div class="text-white mb-3"><span class="text-black-opacity-05"><small>By {{i.name}} <span class="sep">/</span> {{i.date}} <span class="sep">/</span>{{i.time}}</small></span></div>
+                <h3 class="font-weight-light">{{i.title}}</h3>
+                <div class="text-white mb-3"><span class="text-black-opacity-05"><small>By<a href="{% url "his_profile" i.name%}"> {{i.name}}</a> <span class="sep">/</span> {{i.date}} <span class="sep">/</span>{{i.time}}</small></span></div>
 
 
                 <div class="player">
@@ -153,8 +154,11 @@
                 </div>
               </div>
           {% endfor %}
+           </div>
+        </div>
+      </div>
+    </div>
 
-            </div>
 
     <!-- <div class="site-section">
       <div class="container" data-aos="fade-up">
@@ -293,17 +297,17 @@
   
     <div class="site-section bg-light block-13">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12 text-center">
+        <div class="row">
+          <div class="col-sm-12 text-center">
           </div>
         </div>
         <div class="nonloop-block-13 owl-carousel">
           <div class="text-center p-3 p-md-5 bg-white">
             <div class="mb-4">
-              <img src="/static/images/5.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+             <a class='text-muted' href="https://github.com/mohamadmoayeri/radiobeech.git"> <img src="/static/images/5.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded-circle"></a>
             </div>
             <div class="">
-              <h3 class="font-weight-light h5"><a class='text-muted' href="">GitHub</a></h3>
+              <h3 class="font-weight-light h5"><a class='text-muted' href="https://github.com/mohamadmoayeri/radiobeech.git">GitHub</a></h3>
               
             </div>
           </div>
@@ -321,20 +325,20 @@
 
           <div class="text-center p-3 p-md-5 bg-white">
             <div class="mb-4">
-              <img src="/static/images/6.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded">
+             <a class='text-muted' href="http://185.235.41.67/api/"> <img src="/static/images/6.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded"></a>
             </div>
             <div class="">
-              <h3 class="font-weight-light h5"><a class='text-muted' href="http://127.0.0.1/api/">API</a></h3>
+              <h3 class="font-weight-light h5"><a class='text-muted' href="http://185.235.41.67/api/">API</a></h3>
               
             </div>
           </div>
 
           <div class="text-center p-3 p-md-5 bg-white">
             <div class="mb-4">
-              <img src="/static/images/3.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+             <a class='text-muted' href="https://t.me/RadioBeech"><img src="/static/images/3.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded-circle"></a>
             </div>
             <div class="">
-              <h3 class="font-weight-light h5"><a class='text-muted' href="">Telegram</a></h3>
+              <h3 class="font-weight-light h5"><a class='text-muted' href="https://t.me/RadioBeech">Telegram</a></h3>
           
               
             </div>
@@ -342,7 +346,7 @@
 
           <div class="text-center p-3 p-md-5 bg-white">
             <div class="mb-4">
-              <img src="/static/images/1.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded">
+             <a class='text-muted' href="https://www.instagram.com/radio__beech/"> <img src="/static/images/1.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded"></a>
             </div>
             <div class="">
               <h3 class="font-weight-light h5"><a class='text-muted' href="https://www.instagram.com/radio__beech/">Insatagram</a></h3>
@@ -352,10 +356,10 @@
 
           <div class="text-center p-3 p-md-5 bg-white">
             <div class="mb-4">
-              <img src="/static/images/4.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+             <a class='text-muted' href="https://www.youtube.com/channel/UCCu09geKt7FFkRS96Y6e5ng"> <img src="/static/images/4.jpg" alt="Image" class="w-50 mx-auto img-fluid rounded-circle"></a>
             </div>
             <div class="">
-              <h3 class="font-weight-light h5"><a class='text-muted' href="">Youtube</a></h3>
+              <h3 class="font-weight-light h5"><a class='text-muted' href="https://www.youtube.com/channel/UCCu09geKt7FFkRS96Y6e5ng">Youtube</a></h3>
             </div>
           </div>
 

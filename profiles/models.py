@@ -21,7 +21,7 @@ def VALID(value):
   if x:
     return value
   else:
-     raise ValidationError('the phone number is incorrect')
+     raise ValidationError('correct example:09121112233')
 
 
 

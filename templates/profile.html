@@ -21,25 +21,34 @@
 {% block content %}
     <div class="container pt-5 hero">
            
-      <div class="row align-items-center text-center text-md-left">
+
+      <div class="row align-items-center text-md-left">
         <div class="col-lg-7">
-          <h1 class="mb-3 display-3">{{user}}</h1>
-          <h4 class="text-muted">{{user.first_name}}  {{user.last_name}}<h5> 
-          <h5  class="text-black"><small>{{l}} Story</small><h5> 
-          <h6 class="text-danger"><a  class="font-weight-light h5" href="{% url 'edit_profile' user.id %}"><small>Edit Profile</small></a><h6> 
-          <h6 class="text-danger"><a  class="font-weight-light h5" href="{% url "add_personal_information"%}"><small> Personal Information Settings</small></a><h6>
-          <form  method='get' action="#" >
+            <img src="{{p.avatar.url}}" alt="no image"  onerror=this.src="/static/images/no.png" class="rounded-circle" width="150" height="150">
+        </div>
+        <div class="col-lg-5">
+          <br/> <h1 class="mb-3 display-3">{{user}}</h1>
+          <h4 class="text-muted">{{user.first_name}}  {{user.last_name}}</h4> 
+          <h5  class="text-black"><small>{{l}} Story</small></h5> 
+          <h6 class="text-danger"><a  class="font-weight-light h5" href="{% url 'edit_profile' user.id %}"><small>Edit Profile</small></a></h6>
+
+
+          <h6 class="text-danger"><a  class="font-weight-light h5" href="{% url "add_personal_information"%}"><small> Personal Information Settings</small></a><h6/>
+
           {% if s %}
-              {{form.search.label}}
-              {{form.search}}
-              <input type='submit' class="text-black" value="Search in stories">
+    
+           <form class="form-inline my-2  my-sm-0>" method="get"  action="#">
+
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <button class=" btn-sm btn-outline-success my-2  my-sm-0" type="submit">Search</button>
+           </form>
+        
           {% endif %}
               
               
-          </form>
         </div>
         
-               <img src="{{p.avatar.url}}" alt="no image"  onerror=this.src="/static/images/no.png" class="rounded-circle" width="250" height="250">
+ 
     </div>
       
   
@@ -53,7 +62,7 @@
               <div class="image" style="background-image: url('{{i.image.url}}');"></div>
               <div class="text">
 
-                <h3 class="font-weight-light"><a href="single-post.html">{{i.title}}</a></h3>
+                <h3 class="font-weight-light">{{i.title}}</h3>
                 <div class="text-white mb-3"><span class="text-black-opacity-05"><span class="sep"></span> {{i.created_at.date}} </div>
 
 

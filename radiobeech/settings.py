@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'private'
+SECRET_KEY = 'bb--jho(5+jm)(coy7j+65%4)&x0%8p6p$l66(^zccfuajxo7z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'radiobeech.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'p',
-        'PASSWORD':'p',
-        'USER':'p',
+        'NAME': 'beech',
+        'PASSWORD':'191431',
+        'USER':'mhmd',
         'HOST':'postgre',
         #'port':'5432',
         
@@ -161,8 +161,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'admin@gmail.com'
-EMAIL_HOST_PASSWORD = 'private'
+EMAIL_HOST_USER = 'mohammad.moayyeri10@gmail.com'
+EMAIL_HOST_PASSWORD = 'xxkvvrdsdulsvhmf'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

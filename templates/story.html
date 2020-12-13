@@ -19,12 +19,11 @@
 
 {% block content %}
           <div class="container pt-5 hero">
-  
-            <form  method='get' action="#" >
-              {{form.search.label}}
-              {{form.search}}
-              <input type='submit'  value="search in stories" >
-            </form>
+           <form class="form-inline my-2  my-lg-0>" method="get"  action="#">
+      
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn-sm btn-outline-success my-2  my-sm-0" type="submit">Search</button>
+           </form>
           </div>
 
                
@@ -41,7 +40,7 @@
               <div class="image" style="background-image: url('{{i.image.url}}');"></div>
               <div class="text">
 
-                <h3 class="font-weight-light"><a href="single-post.html">{{i.title}}</a></h3>
+                <h3 class="font-weight-light">{{i.title}}</h3>
                 <div class="text-white mb-3"><span class="text-black-opacity-05">By<a href="{% url "his_profile" i.user %}"> {{i.user}} </a><span class="sep"></span> {{i.created_at.date}} </div>
 
 

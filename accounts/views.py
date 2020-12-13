@@ -86,7 +86,7 @@ def password_reset_form (request):
 
                 context = {
 					"email":user.email,
-					'domain':'127.0.0.1',
+					'domain':'185.235.41.67',
 					'site_name': 'radiobeech',
 					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
 					"user": user,

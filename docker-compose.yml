@@ -81,9 +81,9 @@ services:
 
         environment: 
 
-           POSTGRES_USER: 'mhmd'
-           POSTGRES_PASSWORD: '191431'
-           POSTGRES_DB: 'beech'
+           POSTGRES_USER: 'p'
+           POSTGRES_PASSWORD: 'p'
+           POSTGRES_DB: 'p'
 
     memcached:
 
